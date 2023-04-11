@@ -1,6 +1,8 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from django.contrib.auth import logout
+from .forms import CustomUserCreationForm
+from django.contrib.auth import authenticate, login
 from django.views.generic import ListView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
@@ -19,6 +21,23 @@ def publicaciones(request):
     return render(request, 'Aplicacion/publicaciones.html')
 
 
+def register(request):
+
+    data = {'form': CustomUserCreationForm()}
+        
+    if request.method == "POST":
+
+        user_creation_form = CustomUserCreationForm(data=request.POST)
+
+        if user_creation_form.is_valid():
+            user_creation_form.save()
+
+            user = authenticate(username=user_creation_form.cleaned_data['username'], password=user_creation_form.cleaned_data['password1'])
+            login(request, user)
+            return redirect('inicio')
+
+    return render(request, 'registration/register.html', data)
+
 
 class TextosListView(ListView):
     model = Texto
@@ -30,7 +49,6 @@ class TextosListView(ListView):
 class TextoListView(ListView):
     model = Texto
     template_name = 'Aplicacion/mostrar_view.html'
-    
    
 class TextoDetailViews(DetailView):
     model = Texto
