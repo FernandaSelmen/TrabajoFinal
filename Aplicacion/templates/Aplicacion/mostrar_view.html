@@ -1,0 +1,28 @@
+{% extends 'Aplicacion/base.html' %}
+{% load static %}
+
+
+{% block contenido %}
+<h1>Texto</h1>
+
+<ul>
+  {% for texto in object_list %}
+    <li>
+      <h2>{{ texto.titulo }}</h2>
+      <p>{{ texto.subtitulo }}</p>
+      <p>{{ texto.contenido }}</p>
+    </li>
+
+    <p>
+
+    </p>
+  {% empty %}
+
+    <p>No hay textos disponibles.</p>
+    
+  {% endfor %}
+</ul>
+
+
+
+{% endblock %}

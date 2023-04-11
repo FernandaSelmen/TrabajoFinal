@@ -1,0 +1,27 @@
+{% extends 'Aplicacion/base.html' %}
+{% load static %}
+
+
+{% block contenido %}
+
+<h1>Lista de textos</h1>
+<ul>
+  {% for texto in object_list %}
+    <li>
+      <p>{{ texto.titulo }}</p>
+      <p>{{ texto.subtitulo }}</p>
+      <p>{{ texto.contenido }}</p>
+      <div class="button-group">
+        <a href="{% url 'editar_view' texto.id %}" class="button">Editar</a>
+        <form action="{% url 'eliminar_view' texto.id %}" method="POST">
+           {% csrf_token %}
+           <input type="submit" value="Eliminar">
+      </form>
+    </div>
+    </li>
+  {% endfor %}
+
+</ul>
+
+
+{% endblock %}
