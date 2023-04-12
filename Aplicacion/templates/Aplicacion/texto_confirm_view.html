@@ -1,0 +1,17 @@
+{% extends 'Aplicacion/base.html' %}
+{% load static %}
+
+
+{% block contenido %}
+<form      method="POST">
+    {% csrf_token %}
+    
+    Esta seguro que quiere eliminar el texto {{object}} ?
+    
+    <input  type="submit"    value="Eliminar">
+    
+    </form>
+    
+
+
+{% endblock %}

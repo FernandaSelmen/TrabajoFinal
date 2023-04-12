@@ -1,0 +1,25 @@
+{% extends 'Aplicacion/base.html' %}
+{% load static %}
+
+
+{% block contenido %}
+
+
+<div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <div class="card mb-4">
+          <div class="card-body">
+            <h2 class="card-title">{{ texto.titulo }}</h2>
+            <h5 class="card-subtitle mb-3 text-muted">{{ texto.subtitulo }}</h5>
+            <p class="card-text">{{ texto.contenido }}</p>
+          </div>
+        </div>
+        <div class="text-center">
+          <a href="{% url 'mostrar_view' %}" class="btn btn-primary">Regresar</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}
