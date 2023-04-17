@@ -12,8 +12,9 @@
       <p>{{ texto.subtitulo }}</p>
       <p>{{ texto.contenido }}</p>
       <p>{{ texto.dia }}</p>
-      <p>{{ texto.imagen}}</p>
-      <div class="button-group">
+      {%if texto.imagen%}
+        <img src="{{texto.imagen.url}}" alt="imagen de prueba">
+      {%endif%}
         <a href="{% url 'editar_view' texto.id %}" class="button">Editar</a>
         <form action="{% url 'eliminar_view' texto.id %}" method="POST">
            {% csrf_token %}
