@@ -64,10 +64,10 @@ class TextoCreateView(CreateView):
     model = Texto
     template_name = 'Aplicacion/texto_form_view.html'
     success_url = '/mostrar_view/'
-    fields = ['titulo', 'subtitulo', 'contenido']
+    fields = ['titulo', 'subtitulo', 'contenido', 'imagen', 'dia']
 
 class TextoUpdateView(UpdateView):
     model = Texto
     template_name = 'Aplicacion/texto_form_view.html'
     success_url = '/mostrar_view/'
-    fields = ['titulo', 'subtitulo', 'contenido']
+    fields = ['titulo', 'subtitulo', 'contenido', 'imagen', 'dia']
