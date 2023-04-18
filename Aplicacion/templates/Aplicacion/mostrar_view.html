@@ -1,4 +1,4 @@
-{% extends 'Aplicacion/base.html' %}
+{% extends 'Aplicacion/publicaciones.html' %}
 {% load static %}
 
 
@@ -7,10 +7,22 @@
 
 <ul>
   {% for texto in object_list %}
-    <li>
-      <h2>{{ texto.titulo }}</h2>
-      <p>{{ texto.subtitulo }}</p>
-      <p>{{ texto.contenido }}</p>
+    <li>  
+        
+  <figure>
+    <blockquote class="blockquote">
+      <p>{{ texto.titulo }}</p>
+    </blockquote>
+    <figcaption class="blockquote-footer">
+       {{texto.subtitulo}} 
+    </figcaption>
+    <cite title="Source Title">{{ texto.dia }}</cite>
+  </figure>
+     
+      
+      {%if texto.imagen%}
+        <img src="{{texto.imagen.url}}" style="width:300px; height:200px;" class="rounded float-start" alt="imagen de prueba"><p><em>{{texto.contenido}}</em></p>
+      {%endif%}
     </li>
 
     <p>

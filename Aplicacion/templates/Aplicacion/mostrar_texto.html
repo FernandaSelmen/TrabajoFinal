@@ -1,4 +1,4 @@
-{% extends 'Aplicacion/base.html' %}
+{% extends 'Aplicacion/publicaciones.html' %}
 {% load static %}
 
 
@@ -11,7 +11,10 @@
       <p>{{ texto.titulo }}</p>
       <p>{{ texto.subtitulo }}</p>
       <p>{{ texto.contenido }}</p>
-      <div class="button-group">
+      <p>{{ texto.dia }}</p>
+      {%if texto.imagen%}
+        <img src="{{texto.imagen.url}}" alt="imagen de prueba">
+      {%endif%}
         <a href="{% url 'editar_view' texto.id %}" class="button">Editar</a>
         <form action="{% url 'eliminar_view' texto.id %}" method="POST">
            {% csrf_token %}

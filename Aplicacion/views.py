@@ -7,6 +7,7 @@ from django.views.generic import ListView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from Aplicacion.models import Texto
+
 # Create your views here.
 
 def inicio(request):
@@ -49,10 +50,14 @@ class TextosListView(ListView):
 class TextoListView(ListView):
     model = Texto
     template_name = 'Aplicacion/mostrar_view.html'
-   
+    
+
+ 
 class TextoDetailViews(DetailView):
     model = Texto
     template_name = 'Aplicacion/texto_detalle_view.html'
+
+
 
 class TextoDeleteViews(DeleteView):
     model = Texto
@@ -64,10 +69,14 @@ class TextoCreateView(CreateView):
     model = Texto
     template_name = 'Aplicacion/texto_form_view.html'
     success_url = '/mostrar_view/'
-    fields = ['titulo', 'subtitulo', 'contenido']
+    fields = ['titulo', 'subtitulo', 'contenido', 'imagen', 'dia']
+
 
 class TextoUpdateView(UpdateView):
     model = Texto
     template_name = 'Aplicacion/texto_form_view.html'
     success_url = '/mostrar_view/'
-    fields = ['titulo', 'subtitulo', 'contenido']
+    fields = ['titulo', 'subtitulo', 'contenido', 'imagen', 'dia']
+
+
+

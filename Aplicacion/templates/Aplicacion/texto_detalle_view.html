@@ -1,4 +1,4 @@
-{% extends 'Aplicacion/base.html' %}
+{% extends 'Aplicacion/publicaciones.html' %}
 {% load static %}
 
 
@@ -13,6 +13,8 @@
             <h2 class="card-title">{{ texto.titulo }}</h2>
             <h5 class="card-subtitle mb-3 text-muted">{{ texto.subtitulo }}</h5>
             <p class="card-text">{{ texto.contenido }}</p>
+            <p class="card-text">{{ texto.dia}}</p>
+            <img class="card-img-top" src="{{ texto.imagen.url }}" alt="{{ texto.titulo }}">
           </div>
         </div>
         <div class="text-center">
