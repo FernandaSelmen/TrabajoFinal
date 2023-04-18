@@ -7,6 +7,7 @@ from django.views.generic import ListView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from Aplicacion.models import Texto
+
 # Create your views here.
 
 def inicio(request):
@@ -71,3 +72,6 @@ class TextoUpdateView(UpdateView):
     template_name = 'Aplicacion/texto_form_view.html'
     success_url = '/mostrar_view/'
     fields = ['titulo', 'subtitulo', 'contenido', 'imagen', 'dia']
+
+
+
