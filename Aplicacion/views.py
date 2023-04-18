@@ -50,10 +50,14 @@ class TextosListView(ListView):
 class TextoListView(ListView):
     model = Texto
     template_name = 'Aplicacion/mostrar_view.html'
-   
+    
+
+ 
 class TextoDetailViews(DetailView):
     model = Texto
     template_name = 'Aplicacion/texto_detalle_view.html'
+
+
 
 class TextoDeleteViews(DeleteView):
     model = Texto
@@ -66,6 +70,7 @@ class TextoCreateView(CreateView):
     template_name = 'Aplicacion/texto_form_view.html'
     success_url = '/mostrar_view/'
     fields = ['titulo', 'subtitulo', 'contenido', 'imagen', 'dia']
+
 
 class TextoUpdateView(UpdateView):
     model = Texto
