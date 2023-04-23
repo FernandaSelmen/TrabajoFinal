@@ -7,7 +7,7 @@ from django.views.generic import ListView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from Aplicacion.models import Texto
-
+from django.http import HttpResponse
 # Create your views here.
 
 def inicio(request):
@@ -79,4 +79,14 @@ class TextoUpdateView(UpdateView):
     fields = ['titulo', 'subtitulo', 'contenido', 'imagen', 'dia']
 
 
+class busquedaPorCampoView(ListView):
+    model = Texto
+    template_name = 'Aplicacion/buscador.html'
+
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        campo_buscado = self.request.GET.get('titulo')
+        if campo_buscado:
+            queryset = queryset.filter(campo=campo_buscado)
+            return queryset
 
