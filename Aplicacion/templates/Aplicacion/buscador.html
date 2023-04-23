@@ -1,0 +1,28 @@
+{% extends 'Aplicacion/publicaciones.html' %}
+{% load static %}
+
+
+{% block contenido %}
+
+{% csrf_token %}
+<h1>Lista de textos</h1>
+<ul>
+  {% for texto in object_list %}
+    <li>
+      <p>{{ texto.titulo }}</p>
+      <p>{{ texto.subtitulo }}</p>
+      <p>{{ texto.contenido }}</p>
+      <p>{{ texto.dia }}</p>
+      {%if texto.imagen%}
+        <img src="{{texto.imagen.url}}" alt="imagen de prueba">
+      {%endif%}
+      </form>
+    </div>
+    </li>
+  {% endfor %}
+
+</ul>
+
+
+
+{% endblock %}

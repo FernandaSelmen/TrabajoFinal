@@ -24,9 +24,11 @@
                 {% if request.user.is_authenticated %}
                     <a class="btn btn-success" href="{% url 'agregar_view' %}">Nueva Publicacion</a>
                     <a class="btn btn-success" href="{% url 'mostrar_texto' %}">Editar Publicaciones</a>
+                    <a class="btn btn-success" href="{% url 'buscar_texto' %}">buscar</a>
                 {% endif %}
                 
             </div>
+        
         </nav>
         <!-- Masthead-->
         <header class="masthead">
@@ -73,6 +75,7 @@
         </header>
         <!-- Icons Grid-->
         {% block contenido %}
+
        
         {% endblock%}
 
